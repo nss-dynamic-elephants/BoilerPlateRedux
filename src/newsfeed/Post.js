@@ -18,7 +18,7 @@ export default class Post extends Component {
         return (
             <div className="card post">
                 <div className="card-body">
-                    <h5 className="card-title">By {this.props.post.user.email}</h5>
+                    <h5 className="card-title">By {this.props.post.user.fName} {this.props.post.user.lName}</h5>
                     <p className="card-text">
                         {this.props.post.message}
                     </p>
