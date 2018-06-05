@@ -1,23 +1,13 @@
  import React, { Component } from "react"
- import Events from "./Events";
+ import Events from "./events";
 
- class EventList extends Component {
-     state = {
-         calendar: []
-     }
-
-     componentDidMount () {
-         fetch(`http://localhost:5001/calendar`)
-            .then(r => r.json())
-            .then(ads => this.setState(
-            {calendar: events}))
-     }
-
+ export default class EventList extends Component {
+     uniqueKey = 1
      render() {
          return (
              <div>
                  {
-                     this.state.calendar.map(event => <Event key={calendar.id} event={event}/>)
+                     this.props.calendar.map(event => <Events key={this.uniqueKey++} event={event.event} date={event.date} location={event.location} start={event.start} end={event.end}/>)
                  }
              </div>
          )

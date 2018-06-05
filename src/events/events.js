@@ -5,10 +5,10 @@ class Events extends Component {
     render() {
         return (
             <div className="calendarEvent">
-                <h5>{this.props.calendar.event}</h5>
-                <p>{this.props.calendar.date}</p>
-                <p>{this.props.calendar.location}</p>
-                <p>Start: {this.props.calendar.start} End: {this.props.calendar.end}</p>
+                <h5>{this.props.event}</h5>
+                <p>{this.props.date}</p>
+                <p>{this.props.location}</p>
+                <p>Start: {this.props.start} End: {this.props.end}</p>
                 <p> {/*User name will go here*/}</p>
             </div>
         )
