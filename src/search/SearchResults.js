@@ -24,7 +24,7 @@ export default class SearchResults extends Component {
 
         How might you solve this issue?
     */
-    componentDidMount() {
+    RunSearch = function() {
         const newState = {}
         fetch(`http://localhost:5001/posts?message_like=${encodeURI(this.props.terms)}&_expand=user`)
             .then(r => r.json())
@@ -47,6 +47,7 @@ export default class SearchResults extends Component {
         console.log(this.props)
         return (
             <div className="searchResults">
+            {this.RunSearch()}
                 <h1>Search Results</h1>
 
                 {
