@@ -85,14 +85,19 @@
       "id": 9
     },
     {
-      "message": "r2vwgrvgr",
+      "message": "Choopin broccoli",
       "userId": "1",
       "id": 10
     },
     {
-      "message": "Choopin broccoli",
-      "userId": "1",
+      "message": "Joe can beat Steve when it comes to tabletop games!",
+      "userId": "2",
       "id": 11
+    },
+    {
+      "message": "Still working?",
+      "userId": "2",
+      "id": 12
     }
   ],
   "events": [],
