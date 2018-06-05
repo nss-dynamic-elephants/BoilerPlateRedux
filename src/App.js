@@ -3,6 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 import NavBar from './nav/NavBar';
 import Home from './newsfeed/Home';
+import Profile from './user/Profile';
+import Notifications from './user/Notifications';
+import FollowersView from './friends/FollowersView';
+import FriendsView from './friends/FriendsView';
 import Login from './auth/Login';
 import SearchResults from './search/SearchResults';
 
@@ -77,7 +81,15 @@ class App extends Component {
                 case "logout":
                     return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
                 case "results":
-                    return <SearchResults terms={this.state.searchTerms} />
+                    return <SearchResults viewHandler={this.showView}  terms={this.state.searchTerms} />
+                case "profile":
+                    return <Profile />
+                case "notifications":
+                    return <Notifications/>
+                case "followers":
+                    return <FollowersView/>
+                case "friends":
+                    return <FriendsView/>
                 case "home":
                 default:
                     return <Home activeUser={this.state.activeUser} />
