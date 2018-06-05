@@ -9,7 +9,7 @@ export default class PostList extends Component {
             <div className="postList">
                 <h1 className="postList__header">Stories</h1>
                 {
-                    this.props.posts.map(p => <Post key={p.id} post={p} />)
+                    this.props.posts.map(p => <Post activeUser={this.props.activeUser} key={p.id} post={p} />)
                 }
             </div>
         )
