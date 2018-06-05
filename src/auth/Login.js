@@ -22,15 +22,15 @@ export default class Login extends Component {
         e.preventDefault()
 
         // Determine if a user already exists in API
-        fetch(`http://localhost:5001/users?email=${this.state.email}`)
+        fetch(`http://localhost:5001/users?email=${this.state.email}&password=${this.state.password}`)
             .then(r => r.json())
             .then(user => {
                 // User exists. Set local storage, and show home view
                 if (user.length) {
-                    this.props.setActiveUser(user[0].id)
+                    this.props.setActiveUser(user[0].id && user[0].password)
                     this.props.showView("home")
 
-                // User doesn't exist
+                    // User doesn't exist
                 } else {
                     // Create user in API
                     fetch("http://localhost:5001/users", {
@@ -38,34 +38,35 @@ export default class Login extends Component {
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        body: JSON.stringify({email: this.state.email, password: this.state.password})
+                        body: JSON.stringify({ email: this.state.email, password: this.state.password })
                     })
 
-                    // Set local storage with newly created user's id and show home view
-                    .then(newUser => {
-                        this.props.setActiveUser(newUser.id)
-                        this.props.showView("home")
-                    })
+                        // Set local storage with newly created user's id and show home view
+                        .then(newUser => {
+                            this.props.setActiveUser(newUser.id)
+                            this.props.showView("home")
+                        })
                 }
 
             })
     }.bind(this)
 
+    handleEmailChange = (evt) => {
+        this.setState({ email: evt.target.value })
+    }
 
-    /*
-        TODO:
-            - Add first name field
-            - Add last name field
-            - Add password verification field
-    */
+    handlePasswordChange = (evt) => {
+        this.setState({ password: evt.target.value })
+    }
+
     render() {
         return (
             <form className="form-signin" onSubmit={this.handleLogin}>
                 <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label htmlFor="inputEmail" className="sr-only">Email address</label>
-                <input onChange={this.handleFieldChange} type="email" id="email" className="form-control" placeholder="Email address" required="" autoFocus="" />
+                <input onChange={this.handleEmailChange} type="email" id="email" className="form-control" placeholder="Email address" required="" autoFocus="" />
                 <label htmlFor="inputPassword" className="sr-only">Password</label>
-                <input onChange={this.handleFieldChange} type="password" id="password" className="form-control" placeholder="Password" required="" />
+                <input onChange={this.handlePasswordChange} type="password" id="password" className="form-control" placeholder="Password" required="" />
                 <div className="checkbox mb-3">
                     <input type="checkbox" value="remember-me" /> Remember me
                 </div>
