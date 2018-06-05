@@ -5,6 +5,10 @@ import "../newsfeed/Post.css"
 
 
 export default class SearchResults extends Component {
+    constructor(props) {
+        super(props);
+      }
+
 
     // Set initial state
     state = {
@@ -35,7 +39,12 @@ export default class SearchResults extends Component {
             })
     }
 
+
+
+
+
     render() {
+        console.log(this.props)
         return (
             <div className="searchResults">
                 <h1>Search Results</h1>
@@ -60,7 +69,7 @@ export default class SearchResults extends Component {
                             <img className="card-img-top avatar" src={Avatar} alt="Generic person image" />
                             <div className="card-body">
                                 <h5 className="card-title">{u.email}</h5>
-                                <a href="#" className="btn btn-outline-success">View profile</a>
+                                <a onClick={this.props.viewHandler} id="searchResults__profile" href="#" className="btn btn-outline-success userProfileButton">View profile</a>
                             </div>
                         </div>
                     )
@@ -69,3 +78,4 @@ export default class SearchResults extends Component {
         )
     }
 }
+

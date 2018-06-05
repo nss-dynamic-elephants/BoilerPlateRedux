@@ -19,6 +19,26 @@
       "email": "meg@ducharme.com",
       "password": "me",
       "id": 4
+    },
+    {
+      "email": "jack@jack.com",
+      "password": "dsfdsf",
+      "id": 5
+    },
+    {
+      "email": "Deanna2000@gmail.com",
+      "password": "dsdfew",
+      "id": 6
+    },
+    {
+      "email": "blah@gmail.com",
+      "password": "dsdfew",
+      "id": 7
+    },
+    {
+      "email": "june@gmail.com",
+      "password": "skylar",
+      "id": 8
     }
   ],
   "friends": [
@@ -93,6 +113,26 @@
       "message": "Choopin broccoli",
       "userId": "1",
       "id": 11
+    },
+    {
+      "message": "Hey there, it's Yakkin' time!",
+      "userId": "5",
+      "id": 12
+    },
+    {
+      "message": "sdfsfs",
+      "userId": 5,
+      "id": 13
+    },
+    {
+      "message": "",
+      "userId": "5",
+      "id": 14
+    },
+    {
+      "message": "hey",
+      "userId": "5",
+      "id": 15
     }
   ],
   "events": [],
