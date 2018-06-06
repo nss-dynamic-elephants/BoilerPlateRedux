@@ -5,6 +5,7 @@ import NavBar from './nav/NavBar';
 import Home from './newsfeed/Home';
 import Login from './auth/Login';
 import SearchResults from './search/SearchResults';
+import Register from "./auth/Register"
 
 class App extends Component {
 
@@ -71,7 +72,12 @@ class App extends Component {
     */
     View = () => {
         if (localStorage.getItem("yakId") === null) {
-            return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
+            switch (this.state.currentView) {
+                case "register":
+                    return <Register setActiveUser={this.setActiveUser} showView={this.showView} />
+            default:
+                return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
+            }
         } else {
             switch (this.state.currentView) {
                 case "logout":
@@ -93,7 +99,6 @@ class App extends Component {
                     activeUser={this.state.activeUser}
                     setActiveUser={this.setActiveUser}
                 />
-
                 {this.View()}
             </article>
         )
