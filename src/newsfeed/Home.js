@@ -3,6 +3,7 @@ import "./Home.css"
 import PostList from "./PostList";
 import AdList from "../ads/AdList";
 import FriendList from "../friends/FriendList";
+import GetEvents from "../events/getEvents";
 
 export default class Home extends Component {
 
@@ -70,6 +71,7 @@ export default class Home extends Component {
                     </div>
                     <div className="col col-sm-3">
                         <AdList />
+                        <GetEvents />
                     </div>
                 </div>
             </div>
