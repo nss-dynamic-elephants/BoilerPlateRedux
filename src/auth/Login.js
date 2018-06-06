@@ -31,8 +31,10 @@ export default class Login extends Component {
                     this.props.showView("home")
 
                     // User doesn't exist
-                } else {}
 
+                } else {
+                    alert("Email not recognized, please register as a new user!");
+                }  
             })
     }.bind(this)
 
