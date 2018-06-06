@@ -19,6 +19,26 @@
       "email": "meg@ducharme.com",
       "password": "me",
       "id": 4
+    },
+    {
+      "email": "jack@jack.com",
+      "password": "dsfdsf",
+      "id": 5
+    },
+    {
+      "email": "Deanna2000@gmail.com",
+      "password": "dsdfew",
+      "id": 6
+    },
+    {
+      "email": "blah@gmail.com",
+      "password": "dsdfew",
+      "id": 7
+    },
+    {
+      "email": "june@gmail.com",
+      "password": "skylar",
+      "id": 8
     }
   ],
   "friends": [
@@ -93,11 +113,6 @@
       "message": "Joe can beat Steve when it comes to tabletop games!",
       "userId": "2",
       "id": 11
-    },
-    {
-      "message": "Still working?",
-      "userId": "2",
-      "id": 12
     }
   ],
   "events": [],

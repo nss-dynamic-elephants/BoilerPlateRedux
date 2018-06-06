@@ -31,10 +31,10 @@ export default class Login extends Component {
                     this.props.showView("home")
 
                     // User doesn't exist
+
                 } else {
                     alert("Email not recognized, please register as a new user!");
-                }
-
+                }  
             })
     }.bind(this)
 
@@ -45,6 +45,11 @@ export default class Login extends Component {
     handlePasswordChange = (evt) => {
         this.setState({ password: evt.target.value })
     }
+
+    MoveToRegister = () => {
+        console.log("Am I working correctly?")
+        this.props.showView("register")
+    } 
 
     render() {
         return (
@@ -58,6 +63,8 @@ export default class Login extends Component {
                     <input type="checkbox" value="remember-me" /> Remember me
                 </div>
                 <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <h4>First timer?</h4>
+                <button className="btn btn-lg btn-info btn-block" onClick={this.MoveToRegister} type="button">Register</button>
                 <p className="mt-5 mb-3 text-muted">© 2017-2018</p>
             </form>
         )

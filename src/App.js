@@ -3,8 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 import NavBar from './nav/NavBar';
 import Home from './newsfeed/Home';
+import Profile from './user/Profile';
+import Notifications from './user/Notifications';
+import FollowersView from './friends/FollowersView';
+import FriendsView from './friends/FriendsView';
 import Login from './auth/Login';
 import SearchResults from './search/SearchResults';
+import Register from "./auth/Register"
 
 class App extends Component {
 
@@ -71,13 +76,26 @@ class App extends Component {
     */
     View = () => {
         if (localStorage.getItem("yakId") === null) {
-            return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
+            switch (this.state.currentView) {
+                case "register":
+                    return <Register setActiveUser={this.setActiveUser} showView={this.showView} />
+            default:
+                return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
+            }
         } else {
             switch (this.state.currentView) {
                 case "logout":
                     return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
                 case "results":
-                    return <SearchResults terms={this.state.searchTerms} />
+                    return <SearchResults viewHandler={this.showView}  terms={this.state.searchTerms} />
+                case "profile":
+                    return <Profile />
+                case "notifications":
+                    return <Notifications/>
+                case "followers":
+                    return <FollowersView/>
+                case "friends":
+                    return <FriendsView/>
                 case "home":
                 default:
                     return <Home activeUser={this.state.activeUser} />
@@ -93,7 +111,6 @@ class App extends Component {
                     activeUser={this.state.activeUser}
                     setActiveUser={this.setActiveUser}
                 />
-
                 {this.View()}
             </article>
         )
