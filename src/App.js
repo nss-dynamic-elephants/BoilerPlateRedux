@@ -3,12 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 import NavBar from './nav/NavBar';
 import Home from './newsfeed/Home';
-import Profile from './user/Profile';
+import MyProfile from './user/MyProfile';
 import Notifications from './user/Notifications';
 import FollowersView from './friends/FollowersView';
 import FriendsView from './friends/FriendsView';
 import Login from './auth/Login';
 import SearchResults from './search/SearchResults';
+import $ from "jquery"
 
 class App extends Component {
 
@@ -18,6 +19,10 @@ class App extends Component {
         searchTerms: "",
         activeUser: localStorage.getItem("yakId")
     }
+
+
+
+
 
     // Search handler -> passed to NavBar
     performSearch = function (terms) {
@@ -81,17 +86,22 @@ class App extends Component {
                 case "logout":
                     return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
                 case "results":
-                    return <SearchResults viewHandler={this.showView}  terms={this.state.searchTerms} />
-                case "profile":
-                    return <Profile />
+                    return <SearchResults viewHandler={this.showView} terms={this.state.searchTerms} />
+                case "myProfile":
+                $(".profileMenu").slideToggle(0)
+                    return <MyProfile />
                 case "notifications":
-                    return <Notifications/>
+                $(".profileMenu").slideToggle(0)
+                    return <Notifications />
                 case "followers":
-                    return <FollowersView/>
+                $(".profileMenu").slideToggle(0)
+                    return <FollowersView />
                 case "friends":
-                    return <FriendsView/>
+                $(".profileMenu").slideToggle(0)
+                    return <FriendsView />
                 case "home":
                 default:
+                $(".profileMenu").slideToggle(0)
                     return <Home activeUser={this.state.activeUser} />
             }
         }

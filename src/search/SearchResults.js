@@ -5,9 +5,9 @@ import "../newsfeed/Post.css"
 
 
 export default class SearchResults extends Component {
-    constructor(props) {
-        super(props);
-      }
+    // constructor(props) {
+    //     super(props);
+    //   }
 
 
     // Set initial state
@@ -67,7 +67,7 @@ export default class SearchResults extends Component {
                 {
                     this.state.users.map(u =>
                         <div className="card post" key={u.id}>
-                            <img className="card-img-top avatar" src={Avatar} alt="Generic person image" />
+                            <img className="card-img-top avatar" src={Avatar} alt="Generic person" />
                             <div className="card-body">
                                 <h5 className="card-title">{u.email}</h5>
                                 <a onClick={this.props.viewHandler} id="searchResults__profile" href="#" className="btn btn-outline-success userProfileButton">View profile</a>

@@ -43,7 +43,7 @@ export default class NavBar extends Component {
         return (
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
                 <a className="navbar-brand col-sm-3 col-md-2 mr-0" onClick={this.props.viewHandler} href="#">
-                    <img id="nav__home" src={yak} style={{ height: `50px` }} />
+                    <img id="nav__home" alt="home" src={yak} style={{ height: `50px` }} />
                 </a>
                 <input id="searchTerms"
                     value={this.state.searchTerms}
@@ -56,8 +56,9 @@ export default class NavBar extends Component {
                 <ul className="navbar-nav px-3">
                     <li className="nav-item text-nowrap">
                         <a className="nav-link" id="nav__profile"
-                            onClick={this.props.viewHandler} href="#">
-                            <img id="navimg__profile"
+                            // onClick={this.props.viewHandler}
+                            href="#">
+                            <img id="navimg__profile" alt="profile"
                                  onClick={()=>$(".profileMenu").slideToggle(333)}
                                  src={profilepic} style={{ height: `30px` }} />
                         </a>
@@ -68,12 +69,12 @@ export default class NavBar extends Component {
                         <this.LoginLogout />
                     </li>
                 </ul>
-                <article className="profileMenu">
-                    <section className="profileMenu__item">
-                        <div><a onClick={this.props.viewHandler} title="notifications" id="nav__notifications" href="#">Notifications</a></div>
-                        <div><a onClick={this.props.viewHandler} title="profile" id="nav__profile" href="#">My Profile</a></div>
-                        <div><a onClick={this.props.viewHandler} title="followers" id="nav__followers" href="#">My Followers</a></div>
-                        <div><a onClick={this.props.viewHandler} title="friends" id="nav__friends" href="#">My Friends</a></div>
+                <article id="article__profileMenu" className="profileMenu">
+                    <section id="section__profileMenu" className="profileMenu__item">
+                        <div id="container__notifications"><a onClick={this.props.viewHandler} title="notifications" id="nav__notifications" href="#">Notifications</a></div>
+                        <div id="container__MyProfile"><a onClick={this.props.viewHandler} title="myProfile" id="nav__myProfile" href="#">My Profile</a></div>
+                        <div id="container__followers"><a onClick={this.props.viewHandler} title="followers" id="nav__followers" href="#">My Followers</a></div>
+                        <div id="container__friends"><a onClick={this.props.viewHandler} title="friends" id="nav__friends" href="#">My Friends</a></div>
                     </section>
                 </article>
             </nav>
